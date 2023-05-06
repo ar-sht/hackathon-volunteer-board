@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Register{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <form method="post">
+    <div class="mb-3">
+      <label for="email" class="form-label">Email</label>
+      <input type="email" class="form-control" id="email" aria-describedby="emailHelp" required>
+      <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+    </div>
+    <div class="mb-3">
+      <label for="password" class="form-label">Password</label>
+      <input type="password" class="form-control" id="password" required>
+    </div>
+    <div class="mb-3">
+      <label for="bio" class="form-label">Bio</label>
+      <textarea name="bio" id="bio" cols="30" rows="10" class="form-control" placeholder="A short explanation of yourself and your experience"></textarea>
+    </div>
+  </form>
+{% endblock %}
