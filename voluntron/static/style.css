@@ -1,7 +1,25 @@
-.navbar-brand, h1, p.jumbotron-desc {
+p.jumbotron-desc {
   font-family: 'Signika Negative';
+  font-weight: 300 !important;
 }
 
-.navbar-brand, h1 {
+div.banner {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2)), url('banner-img.png');
+  height: 60vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+}
+
+div.jumbotron-banner {
+  background: none;
+}
+
+.navbar-brand,
+h1 {
+  font-family: 'Signika Negative';
   font-weight: 400 !important;
 }

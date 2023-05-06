@@ -1,14 +1,20 @@
 {% extends 'base.html' %}
 
 {% block header %}
-<div class="jumbotron border rounded bg-light container-sm my-4 px-3 py-3">
+<div class="banner">
+<div class="jumbotron jumbotron-banner container-sm my-4 px-3 py-3 text-light">
   <h1 class="display-5">{% block title %}Register{% endblock %}</h1>
   <p class="fs-5 jumbotron-desc">Become a volunteer and start contributing to your community today!</p>
+</div>
 </div>
 {% endblock %}
 
 {% block content %}
 <form method="post" class="my-4" style="width: 60vw; margin: auto;">
+  <div class="mb-3">
+    <label for="name" class="form-label">Name</label>
+    <input type="text" name="name" class="form-control" id="name" required>
+  </div>
   <div class="mb-3">
     <label for="email" class="form-label">Email</label>
     <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp" required>
@@ -30,6 +36,6 @@
     <div id="linkHelp" class="form-text">If you use a service like Calendly or Cal.com, add your link here so people in need can use it to schedule a meeting with you.</div>
   </div>
 
-  <button type="submit" class="btn btn-secondary">Register</button>
+  <button type="submit" class="btn btn-outline-secondary">Register</button>
 </form>
 {% endblock %}

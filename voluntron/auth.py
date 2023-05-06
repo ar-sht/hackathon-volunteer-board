@@ -13,6 +13,7 @@ bp = Blueprint('auth', __name__, url_prefix='/auth')
 @bp.route('/register', methods=('GET', 'POST'))
 def register():
     if request.method == 'POST':
+        name = request.form['name']
         email = request.form['email']
         password = request.form['password']
         bio = request.form['bio']
@@ -20,7 +21,9 @@ def register():
         db = get_db()
         error = None
         
-        if not email:
+        if not name:
+           error = 'Name is required'
+        elif not email:
           error='Email is required'
         elif not password:
            error = 'Password is required'
@@ -28,8 +31,8 @@ def register():
         if error is None:
           try:
              db.execute(
-                "INSERT INTO user (email, password, bio, link) VALUES (?, ?, ?, ?)",
-                (email, generate_password_hash(password), bio, link)
+                "INSERT INTO user (name, email, password, bio, link) VALUES (?, ?, ?, ?, ?)",
+                (name, email, generate_password_hash(password), bio, link)
              )
              db.commit()
           except db.IntegrityError:

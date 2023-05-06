@@ -7,7 +7,7 @@ def create_app():
     # create and configure the app
     app = Flask(__name__, instance_relative_config=True)
     app.config.from_mapping(
-        SECRET_KEY="dev",  # change before deploying
+        SECRET_KEY="dev",  #TODO: change before deploying
         DATABASE=os.path.join(app.instance_path, "voluntron.sqlite"),
     )
 
@@ -23,6 +23,14 @@ def create_app():
     @app.route("/")
     def index():
         return render_template("index.html")
+    
+    @app.route("/about")
+    def about():
+        return render_template("index.html") #TODO: Change this
+
+    @app.route("/dashboard")
+    def dashboard():
+        return render_template("index.html") #TODO: Change this
 
     from . import db
 

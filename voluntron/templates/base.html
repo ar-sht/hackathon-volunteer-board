@@ -20,28 +20,37 @@
 
 <body>
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <nav class="navbar navbar-expand-lg bg-body-tertiary shadow" style="position: sticky; top: 0;">
     <div class="container-fluid mx-4">
-      <a href="#" class="navbar-brand me-5">Voluntron</a>
+      <a href="{{ url_for('index') }}" class="navbar-logo me-5">
+        <img src="{{ url_for('static', filename='voluntron-logo.png') }}" alt="Voluntron" width="200px">
+      </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item"><a class="nav-link me-2" href="#">About</a></li>
           {% if g.user %}
-          <li class="nav-item mw-5"><a class="nav-link" href="{{ url_for('auth.logout') }}">Log Out</a></li>
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item"><a class="nav-link me-2" href="{{ url_for('dashboard') }}">Dashboard</a></li>
+          </ul>
+          <ul class="navbar-nav mw-auto">
+            <li class="nav-item mw-5"><a href="" class="nav-link">{{ g.user['name'] }}</a></li>
+            <li class="nav-item mw-5"><a class="nav-link" href="{{ url_for('auth.logout') }}">Log Out</a></li>
+          </ul>
           {% else %}
-          <li class="nav-item mw-5 me-2"><a class="nav-link" href="{{ url_for('auth.register') }}">Register</a></li>
-          <li class="nav-item me-2"><a class="nav-link" href="{{ url_for('auth.login') }}">Log In</a></li>
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <form class="d-flex" role="search">
+              <input class="form-control me-4" type="search" placeholder="What do you need help with?" style="width: 350px;"
+                aria-label="Search">
+              <button class="btn btn-outline-secondary" type="submit">Find a volunteer</button>
+            </form>
+          </ul>
+          <ul class="navbar-nav mw-auto">
+            <li class="nav-item mw-5 me-2"><a class="nav-link" href="{{ url_for('auth.register') }}">Register</a></li>
+            <li class="nav-item me-2"><a class="nav-link" href="{{ url_for('auth.login') }}">Log In</a></li>
+          </ul>
           {% endif %}
-        </ul>
-        <form class="d-flex" role="search">
-          <input class="form-control me-4" type="search" placeholder="What do you need help with?" style="width: 350px;"
-            aria-label="Search">
-          <button class="btn btn-outline-secondary" type="submit">Find a volunteer</button>
-        </form>
       </div>
     </div>
   </nav>
@@ -54,6 +63,22 @@
     {% endfor %}
     {% block content %}{% endblock %}
   </section>
+
+  <div class="container my-5" style="margin-top: 40vh;">
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 border-top">
+      <p class="col-md-4 mb-0 text-muted">© 2023 Grey Wolf Coders</p>
+
+      <a href="{{ url_for('index') }}"
+        class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+        <img src="{{ url_for('static', filename='voluntron-logo.png') }}" alt="Voluntron" width="200px">
+      </a>
+
+      <ul class="nav col-md-4 justify-content-end">
+        <li class="nav-item"><a href="{{ url_for('index') }}" class="nav-link px-2 text-muted">Home</a></li>
+        <li class="nav-item"><a href="{{ url_for('about') }}" class="nav-link px-2 text-muted">About</a></li>
+      </ul>
+    </footer>
+  </div>
 </body>
 
 </html>

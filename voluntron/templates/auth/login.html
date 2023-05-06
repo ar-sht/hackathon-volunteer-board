@@ -1,9 +1,11 @@
 {% extends 'base.html' %}
 
 {% block header %}
-<div class="jumbotron border rounded bg-light container-sm my-4 px-3 py-3">
+<div class="banner">
+<div class="jumbotron jumbotron-banner text-light container-sm my-4 px-3 py-3">
   <h1 class="display-5">{% block title %}Log in to your account{% endblock %}</h1>
   <p class="fs-5 jumbotron-desc">Thank you for giving back to your community.</p>
+</div>
 </div>
 {% endblock %}
 
@@ -18,6 +20,6 @@
     <input type="password" name="password" class="form-control" id="password" required>
   </div>
 
-  <button type="submit" class="btn btn-secondary">Log In</button>
+  <button type="submit" class="btn btn-outline-secondary">Log In</button>
 </form>
 {% endblock %}

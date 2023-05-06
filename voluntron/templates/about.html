@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<div class="banner">
+  <div class="jumbotron jumbotron-banner container-sm my-4 px-3 py-3 text-light banner">
+    <h1 class="display-5">{% block title %}Voluntron's Story{% endblock %}</h1>
+    <p class="fs-5 jumbotron-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+    {% if not g.user %}
+    <a class="btn btn-outline-light my-2" style="width: 120px;" href="{{ url_for('auth.register') }}">Join us</a>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}
+
+{% block content %}
+{% endblock %}
