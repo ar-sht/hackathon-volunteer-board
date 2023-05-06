@@ -1,23 +1,35 @@
 {% extends 'base.html' %}
 
 {% block header %}
-  <h1>{% block title %}Register{% endblock %}</h1>
+<div class="jumbotron border rounded bg-light container-sm my-4 px-3 py-3">
+  <h1 class="display-5">{% block title %}Register{% endblock %}</h1>
+  <p class="fs-5 jumbotron-desc">Become a volunteer and start contributing to your community today!</p>
+</div>
 {% endblock %}
 
 {% block content %}
-  <form method="post">
-    <div class="mb-3">
-      <label for="email" class="form-label">Email</label>
-      <input type="email" class="form-control" id="email" aria-describedby="emailHelp" required>
-      <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-    </div>
-    <div class="mb-3">
-      <label for="password" class="form-label">Password</label>
-      <input type="password" class="form-control" id="password" required>
-    </div>
-    <div class="mb-3">
-      <label for="bio" class="form-label">Bio</label>
-      <textarea name="bio" id="bio" cols="30" rows="10" class="form-control" placeholder="A short explanation of yourself and your experience"></textarea>
-    </div>
-  </form>
+<form method="post" class="my-4" style="width: 60vw; margin: auto;">
+  <div class="mb-3">
+    <label for="email" class="form-label">Email</label>
+    <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp" required>
+    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+  </div>
+  <div class="mb-3">
+    <label for="password" class="form-label">Password</label>
+    <input type="password" name="password" class="form-control" id="password" aria-describedby="passwordHelp" required>
+    <div id="passwordHelp" class="form-text">It's probably secure, but no promises. Don't repeat passwords.</div>
+  </div>
+  <div class="mb-3">
+    <label for="bio" class="form-label">Bio</label>
+    <textarea name="bio" id="bio" cols="30" rows="10" class="form-control"
+      placeholder="A short explanation of yourself and your experience"></textarea>
+  </div>
+  <div class="mb-3">
+    <label for="link" class="form-label">Scheduling Link (optional)</label>
+    <input name="link" type="url" id="link" class="form-control" placeholder="https://cal.com/your-name">
+    <div id="linkHelp" class="form-text">If you use a service like Calendly or Cal.com, add your link here so people in need can use it to schedule a meeting with you.</div>
+  </div>
+
+  <button type="submit" class="btn btn-secondary">Register</button>
+</form>
 {% endblock %}
