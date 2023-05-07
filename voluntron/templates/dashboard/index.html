@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<div class="banner short-banner">
+  <div class="banner-img"></div>
+  <div class="jumbotron jumbotron-banner banner-content container-sm my-4 px-3 py-3 text-light banner">
+    <h1 class="display-5">{% block title %}Volunteer Dashboard{% endblock %}</h1>
+    <p class="fs-5 jumbotron-desc">
+      View your account details. Editing soon to come
+    </p>
+  </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="dashboard container">
+  <div class="row" id="exampleCard">
+    <p class="fs-3 mt-5 mb-2">Your card</p>
+    <div class="card volunteer-card">
+      <div class="card-body">
+        <h5 class="card-title">{{ g.user['name'] }}</h5>
+        {% if g.user['bio'] and g.user['bio'].strip() != '' %}
+        <p class="card-text">
+          {{ g.user['bio'] }}
+        </p>
+        {% else %}
+        <p class="card-text">
+          <em>No bio provided</em>
+        </p>
+        {% endif %}
+        <p><a href="mailto:{{ g.user['email'] }}" class="card-link link-secondary">{{ g.user['email'] }}</a></p>
+
+        {% if g.user['link'] and g.user['link'].strip() != '' %}
+        <p><a href="{{ g.user['link'] }}" class="card-link link-secondary">{{ g.user['link'] }}</a></p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  <!-- <div class="row" id="updateInfo">
+    <p class="fs-3 mt-5 mb-2">Update your info</p>
+    <form method="post" action="{{ url_for('auth.update') }}">
+      <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" name="name" class="form-control" id="name" value="{{ g.user['name'] }}" required>
+      </div>
+      <div class="mb-3">
+        <label for="bio" class="form-label">Bio</label>
+        <textarea name="bio" id="bio" cols="30" rows="10" class="form-control" aria-valuenow="{{ g.user['bio'] }}"></textarea>
+      </div>
+      <div class="mb-3">
+        <label for="link" class="form-label">Scheduling Link</label>
+        <input name="link" type="url" id="link" class="form-control" value="{{ g.user['link'] }}">
+      </div>
+      <div class="mb-3 mt-5">
+        <label for="password" class="form-label">Type password to confirm changes:</label>
+        <input type="password" name="password" id="password" class="form-control" required>
+      </div>
+      <button type="submit" class="btn btn-outline-secondary">Update</button>
+    </form>
+  </div> -->
+</div>
+{% endblock %}

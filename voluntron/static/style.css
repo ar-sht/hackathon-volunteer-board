@@ -1,21 +1,63 @@
+nav {
+  z-index: 100;
+}
+
 p.jumbotron-desc {
   font-family: 'Signika Negative';
   font-weight: 300 !important;
+  text-align: left;
 }
 
 div.banner {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2)), url('banner-img.png');
   height: 60vh;
-  background-repeat: no-repeat;
+  position: relative;
+  overflow: hidden;
+}
+
+div.banner .banner-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 150%;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2)), url('banner-img.png');
+  background-position: center;
   background-size: cover;
+  z-index: -1;
+}
+
+div.banner .banner-content {
   display: flex;
   flex-direction: column;
   justify-content: center;
-
+  align-items: start;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  color: white;
+  text-align: center;
 }
 
-div.jumbotron-banner {
-  background: none;
+div.banner .banner-content h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+div.banner .banner-content p {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+div.short-banner {
+  height: 40vh;
+}
+
+div.short-banner .banner-img {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2)), url('short-banner.png');
 }
 
 .navbar-brand,

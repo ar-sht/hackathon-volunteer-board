@@ -66,6 +66,41 @@ def login():
       flash(error)
    return render_template('auth/login.html')
 
+
+@bp.route('/update', methods=('GET', 'POST'))
+def update():
+   return render_template(url_for('index'))
+#    if request.method == 'POST':
+#       if g.user:
+#          id = g.user['id']
+#          password = request.form['password']
+#          db = get_db()
+#          error = None
+#          user = db.execute(
+#             'SELECT * FROM user WHERE id = ?', (id,)
+#          ).fetchone()
+
+#          if user is None:
+#             error = 'Something has gone very wrong'
+#          elif not check_password_hash(user['password'], password):
+#             error = 'Incorrect password'
+         
+#          if error is None:
+#             name = request.form['name']
+#             bio = request.form['bio']
+#             link = request.form['link']
+#             db.execute(
+#                'UPDATE user SET name = ?, bio = ?, link = ? WHERE id = id;',
+#                (name, bio, link)
+#             )
+#             user = db.execute(
+#                'SELECT * FROM user WHERE id = ?', (id,)
+#             ).fetchone()
+#             session.clear()
+#             session['user_id'] = user['id']
+#    return redirect(url_for('dashboard.index'))
+
+
 @bp.before_app_request
 def logged_in_user():
    user_id = session.get('user_id')

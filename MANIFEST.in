@@ -1,0 +1,4 @@
+include voluntron/schema.sql
+graft voluntron/static
+graft voluntron/templates
+global-exclude *.pyc

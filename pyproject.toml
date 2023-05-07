@@ -1,0 +1,12 @@
+[project]
+name = "voluntron"
+version = "1.0.0"
+dependencies = [
+  "flask",
+  "thefuzz",
+  "python-Levenshtein",
+]
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"

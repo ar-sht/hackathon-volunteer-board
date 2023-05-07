@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<div class="banner short-banner">
+  <div class="banner-img"></div>
+  <div class="jumbotron jumbotron-banner banner-content container-sm my-4 px-3 py-3 text-light">
+    <h1 class="display-5">{% block title %}Search Results{% endblock %}</h1>
+    <p class="fs-5 jumbotron-desc">Here are the volunteers who match your search "{{ query }}":</p>
+  </div>
+</div>
+{% endblock %}
+
+{% block content %}
+{% for vol in volunteers %}
+<div class="query-results my-5">
+<div class="container-sm my-3" id="exampleCard">
+  <div class="card volunteer-card">
+    <div class="card-body">
+      <h5 class="card-title">{{ vol['name'] }}</h5>
+      {% if vol['bio'] and vol['bio'].strip() != '' %}
+      <p class="card-text">
+        {{ vol['bio'] }}
+      </p>
+      {% else %}
+      <p class="card-text">
+        <em>No bio provided</em>
+      </p>
+      {% endif %}
+      <p><a href="mailto:{{ vol['email'] }}" class="card-link link-secondary">{{ vol['email'] }}</a></p>
+
+      {% if vol['link'] and vol['link'].strip() != '' %}
+      <p><a href="{{ vol['link'] }}" class="card-link link-secondary">{{ vol['link'] }}</a></p>
+      {% endif %}
+    </div>
+  </div>
+</div>
+</div>
+{% endfor %}
+{% endblock %}

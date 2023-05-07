@@ -1,11 +1,12 @@
 {% extends 'base.html' %}
 
 {% block header %}
-<div class="banner">
-<div class="jumbotron jumbotron-banner container-sm my-4 px-3 py-3 text-light">
-  <h1 class="display-5">{% block title %}Register{% endblock %}</h1>
-  <p class="fs-5 jumbotron-desc">Become a volunteer and start contributing to your community today!</p>
-</div>
+<div class="banner short-banner">
+  <div class="banner-img"></div>
+  <div class="jumbotron jumbotron-banner banner-content container-sm my-4 px-3 py-3 text-light">
+    <h1 class="display-5">{% block title %}Register{% endblock %}</h1>
+    <p class="fs-5 jumbotron-desc">Become a volunteer and start contributing to your community today!</p>
+  </div>
 </div>
 {% endblock %}
 
@@ -18,7 +19,7 @@
   <div class="mb-3">
     <label for="email" class="form-label">Email</label>
     <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp" required>
-    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+    <div id="emailHelp" class="form-text">We'll never share your email with anyone else. Except for anyone who visits our website. So they can contact you to get your volunteerage.</div>
   </div>
   <div class="mb-3">
     <label for="password" class="form-label">Password</label>
@@ -33,7 +34,8 @@
   <div class="mb-3">
     <label for="link" class="form-label">Scheduling Link (optional)</label>
     <input name="link" type="url" id="link" class="form-control" placeholder="https://cal.com/your-name">
-    <div id="linkHelp" class="form-text">If you use a service like Calendly or Cal.com, add your link here so people in need can use it to schedule a meeting with you.</div>
+    <div id="linkHelp" class="form-text">If you use a service like Calendly or Cal.com, add your link here so people in
+      need can use it to schedule a meeting with you.</div>
   </div>
 
   <button type="submit" class="btn btn-outline-secondary">Register</button>
