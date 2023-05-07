@@ -6,7 +6,7 @@
   <div class="jumbotron jumbotron-banner banner-content container-sm my-4 px-3 py-3 text-light banner">
     <h1 class="display-5">{% block title %}Volunteer Dashboard{% endblock %}</h1>
     <p class="fs-5 jumbotron-desc">
-      View your account details. Editing soon to come
+      View & edit your account.
     </p>
   </div>
 </div>
@@ -36,7 +36,7 @@
       </div>
     </div>
   </div>
-  <!-- <div class="row" id="updateInfo">
+  <div class="row" id="updateInfo">
     <p class="fs-3 mt-5 mb-2">Update your info</p>
     <form method="post" action="{{ url_for('auth.update') }}">
       <div class="mb-3">
@@ -45,18 +45,21 @@
       </div>
       <div class="mb-3">
         <label for="bio" class="form-label">Bio</label>
-        <textarea name="bio" id="bio" cols="30" rows="10" class="form-control" aria-valuenow="{{ g.user['bio'] }}"></textarea>
+        <textarea name="bio" id="bio" cols="30" rows="10" class="form-control"></textarea>
+        <script>
+          document.getElementById('bio').value = "{{ bio }}";
+        </script>
       </div>
       <div class="mb-3">
         <label for="link" class="form-label">Scheduling Link</label>
         <input name="link" type="url" id="link" class="form-control" value="{{ g.user['link'] }}">
       </div>
       <div class="mb-3 mt-5">
-        <label for="password" class="form-label">Type password to confirm changes:</label>
+        <label for="password" class="form-label">Enter password to confirm changes:</label>
         <input type="password" name="password" id="password" class="form-control" required>
       </div>
       <button type="submit" class="btn btn-outline-secondary">Update</button>
     </form>
-  </div> -->
+  </div>
 </div>
 {% endblock %}

@@ -29,13 +29,14 @@
   <div class="mb-3">
     <label for="bio" class="form-label">Bio</label>
     <textarea name="bio" id="bio" cols="30" rows="10" class="form-control"
-      placeholder="A short explanation of yourself and your experience"></textarea>
+      placeholder="A short explanation of yourself and your experience" aria-describedby="bioHelp"></textarea>
+    <div id="bioHelp" class="form-text">Pro tip: load up on keywords like 'math', 'science', or 'language', and avoid negatory statements (e.g. 'I hate teaching piano') which our matching algorithm sees as positive.</div>
   </div>
   <div class="mb-3">
     <label for="link" class="form-label">Scheduling Link (optional)</label>
-    <input name="link" type="url" id="link" class="form-control" placeholder="https://cal.com/your-name">
-    <div id="linkHelp" class="form-text">If you use a service like Calendly or Cal.com, add your link here so people in
-      need can use it to schedule a meeting with you.</div>
+    <input name="link" type="url" id="link" class="form-control" placeholder="https://cal.com/your-name" aria-describedby="linkHelp">
+    <div id="linkHelp" class="form-text">If you use a service like Calendly or Cal.com, add your link here so voluntees
+      can schedule a time to meet with you.</div>
   </div>
 
   <button type="submit" class="btn btn-outline-secondary">Register</button>

@@ -21,7 +21,7 @@
 
 <body>
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-  <nav class="navbar navbar-expand-lg bg-body-tertiary shadow" style="position: sticky; top: 0;">
+  <nav class="navbar navbar-expand-xl bg-body-tertiary shadow" style="position: sticky; top: 0;">
     <div class="container-fluid mx-4">
       <a href="{{ url_for('index') }}" class="navbar-logo me-5">
         <img src="{{ url_for('static', filename='voluntron-logo.png') }}" alt="Voluntron" height="50px">
@@ -31,29 +31,26 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        {% if g.user %}
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item"><a class="nav-link me-2" href="{{ url_for('dashboard.index') }}">Dashboard</a></li>
+          <li class="nav-item"><a class="nav-link" href="{{ url_for('about') }}">About</a></li>
         </ul>
-        <ul class="navbar-nav mw-auto">
-          <li class="nav-item mw-5">
-            <a class="nav-link" href="{{ url_for('dashboard.index') }}">{{ g.user['name'] }}</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{ url_for('dashboard.index') }}">
-              <img src="{{ url_for('static', filename='user-solid.svg') }}" alt="user_img" height="25px" width="25px"
-                style="border-radius: 50%; border: 1px solid grey; margin-right: 20px; padding: 2px;">
-            </a>
-          </li>
-          <li class="nav-item mw-5"><a class="nav-link" href="{{ url_for('auth.logout') }}">Log Out</a></li>
-        </ul>
-        {% else %}
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <form class="d-flex" method="post" action="{{ url_for('search.find') }}">
-            <input class="form-control me-4" placeholder="What do you need help with?" style="width: 350px;" name="q">
+            <input class="form-control me-3" placeholder="What do you need help with?" style="width: 300px;" name="q">
             <button class="btn btn-outline-secondary" type="submit">Find a volunteer</button>
           </form>
         </ul>
+        {% if g.user %}
+        <ul class="navbar-nav mw-auto">
+          <li class="nav-item me-3"><a class="nav-link disabled">
+              Signed in as {{ g.user['name'] }}
+          </a></li>
+          <li class="nav-item mw-5">
+            <a class="nav-link account-name" href="{{ url_for('dashboard.index') }}">Dashboard</a>
+          </li>
+          <li class="nav-item mw-2"><a class="nav-link" href="{{ url_for('auth.logout') }}">Log Out</a></li>
+        </ul>
+        {% else %}
         <ul class="navbar-nav mw-auto">
           <li class="nav-item mw-5 me-2"><a class="nav-link" href="{{ url_for('auth.register') }}">Register</a></li>
           <li class="nav-item me-2"><a class="nav-link" href="{{ url_for('auth.login') }}">Log In</a></li>

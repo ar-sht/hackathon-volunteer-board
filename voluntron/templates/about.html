@@ -11,7 +11,8 @@
       as a hub, linking passionate volunteers with individuals seeking help.
     </p>
     {% if not g.user %}
-    <a class="btn btn-outline-light my-2" style="width: 120px;" href="{{ url_for('auth.register') }}">Join us</a>
+    <a class="btn btn-outline-light my-2" style="width: 180px;" href="{{ url_for('auth.register') }}">Become a
+      volunteer</a>
     {% endif %}
   </div>
 </div>
@@ -25,10 +26,9 @@
       <div class="card-body">
         <h5 class="card-title">For Volunteers</h5>
         <p class="card-text">
-          Volunteering, charitable work, is an experience everyone benefits from them. People with extra time on their
-          hands, people who feel strongly about being a force for positive change already volunteer, but they don't do
-          it as well as they could. Voluntron connects them with the people who need their help most, creating strong
-          community bonds and more efficiently improving lives.
+          Volunteering, charitable work, is an experience everyone benefits from. Many who feel strongly about being a force for positive change already volunteer, but they don't do
+          it as well as they could. Not only that, many others have the time to give, but find the process of finding a suitable organization too arduous.
+          Voluntron connects volunteers with the people who need help most, creating strong community bonds and more efficiently improving lives.
         </p>
         {% if g.user %}
         <a href="{{ url_for('dashboard.index') }}" class="btn btn-outline-secondary">Dashboard</a>
@@ -45,9 +45,9 @@
       <div class="card-body">
         <h5 class="card-title">For Voluntees</h5>
         <p class="card-text">
-          Everyone needs help from time to time - from homework to filling a pothole to learning English as a refugee,
-          there are so many things to help with. Voluntron allows those in need to find volunteers with the necessary
-          skillset and experience to address their problem most effectively.
+          Everyone needs help from time to time - from homework to filling a pothole to learning English as a refugee, Voluntron can help.
+          We connect those in need with volunteers with the
+          skillset and experience to help them as effectively as possible.
         </p>
         <form class="d-flex" method="post" action="{{ url_for('search.find') }} ">
           <input class="form-control me-4" type="text" placeholder="What do you need help with?" style="width: 350px;"
