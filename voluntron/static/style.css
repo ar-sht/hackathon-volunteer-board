@@ -65,3 +65,7 @@ h1 {
   font-family: 'Signika Negative';
   font-weight: 400 !important;
 }
+
+input.query {
+  width: min(350px, 60vw);
+}
